@@ -2,7 +2,7 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const toDos = require("./models/todos");
+const todos = require("./models/todos");
 const cors = require("cors")
 const todosController = require("./controllers/todos.js")
 const todosData = require('./utilities/data')
@@ -18,7 +18,7 @@ const db = mongoose.connection;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("strictQuery", true);
 mongoose.connection.once("open", () => {
-  console.log("bongo mongo");
+  console.log("Mongo only pawn...in game of life.");
 });
 
 // Error / Disconnection
@@ -37,11 +37,11 @@ app.use("/todos", todosController)
 
 // Seeding the db
 app.get('/seed', async (req, res) => {
-    await toDos.deleteMany({});
-    await toDos.insertMany(todosData);
+    await todos.deleteMany({});
+    await todos.insertMany(todosData);
     res.send('done!');
   });
 
 app.listen(port, () => {
-    console.log('This message means nothing', port)
+    console.log(port, "The Final Odyssey")
   })
