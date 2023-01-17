@@ -11,7 +11,7 @@ const itemData = require('./utilities/itemData')
 // Environmental variables
 const app = express();
 const mongoURI = process.env.MONGO_URI;
-const port = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 const db = mongoose.connection;
 
 // Connectign to MongoDB
@@ -42,6 +42,6 @@ app.get('/seed', async (req, res) => {
     res.send('done!');
   });
 
-app.listen(port, () => {
-    console.log(port, "The Final Odyssey")
+app.listen(PORT, () => {
+    console.log(PORT, "The Final Odyssey")
   })
