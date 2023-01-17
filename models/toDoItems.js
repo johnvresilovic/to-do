@@ -3,6 +3,6 @@ const toDoSchema = new mongoose.Schema({
     description: String,
     complete: Boolean
 })
-const toDos = mongoose.model("toDo", toDoSchema)
+const toDoItems = mongoose.model("toDoItems", toDoSchema)
 
-module.exports = toDos
+module.exports = toDoItems
